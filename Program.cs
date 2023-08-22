@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ProyectoGrupalG06.Models;
 //using ProyectoGrupalG06.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,11 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*add context
-builder.Services.AddDbContext<AplicationDbContext>(options =>
+//add context
+builder.Services.AddDbContext<PROYECTOG06Context>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
-});*/
+});
 
 var app = builder.Build();
 
