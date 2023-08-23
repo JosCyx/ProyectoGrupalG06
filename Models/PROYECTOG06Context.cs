@@ -51,10 +51,10 @@ namespace ProyectoGrupalG06.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Empresa)
+                /*entity.HasOne(d => d.Empresa)
                     .WithMany(p => p.Agentes)
                     .HasForeignKey(d => d.EmpresaId)
-                    .HasConstraintName("FK__Agentes__Empresa__5070F446");
+                    .HasConstraintName("FK__Agentes__Empresa__5070F446");*/
             });
 
             modelBuilder.Entity<Caso>(entity =>
@@ -81,7 +81,7 @@ namespace ProyectoGrupalG06.Models
 
                 entity.Property(e => e.SolicitudId).HasColumnName("SolicitudID");
 
-                entity.HasOne(d => d.Agente)
+                /*entity.HasOne(d => d.Agente)
                     .WithMany(p => p.Casos)
                     .HasForeignKey(d => d.AgenteId)
                     .HasConstraintName("FK__Casos__AgenteID__5812160E");
@@ -89,7 +89,7 @@ namespace ProyectoGrupalG06.Models
                 entity.HasOne(d => d.Solicitud)
                     .WithMany(p => p.Casos)
                     .HasForeignKey(d => d.SolicitudId)
-                    .HasConstraintName("FK__Casos__Solicitud__571DF1D5");
+                    .HasConstraintName("FK__Casos__Solicitud__571DF1D5");*/
             });
 
             modelBuilder.Entity<Empresa>(entity =>
@@ -155,13 +155,13 @@ namespace ProyectoGrupalG06.Models
                     .ValueGeneratedNever()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
+                entity.Property(e => e.ClienteId).HasMaxLength(100).HasColumnName("ClienteID");
 
                 entity.Property(e => e.DescripcionSolicitud)
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EmpresaId).HasColumnName("EmpresaID");
+                entity.Property(e => e.EmpresaId).HasMaxLength(100).HasColumnName("EmpresaID");
 
                 entity.Property(e => e.EstadoSolicitud)
                     .HasMaxLength(20)
@@ -169,7 +169,7 @@ namespace ProyectoGrupalG06.Models
 
                 entity.Property(e => e.FechaCreacion).HasColumnType("date");
 
-                entity.HasOne(d => d.Cliente)
+                /*entity.HasOne(d => d.Cliente)
                     .WithMany(p => p.Solicitudes)
                     .HasForeignKey(d => d.ClienteId)
                     .HasConstraintName("FK__Solicitud__Clien__534D60F1");
@@ -177,24 +177,24 @@ namespace ProyectoGrupalG06.Models
                 entity.HasOne(d => d.Empresa)
                     .WithMany(p => p.Solicitudes)
                     .HasForeignKey(d => d.EmpresaId)
-                    .HasConstraintName("FK__Solicitud__Empre__5441852A");
+                    .HasConstraintName("FK__Solicitud__Empre__5441852A");*/
             });
 
             modelBuilder.Entity<Sugerencia>(entity =>
             {
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
+                entity.Property(e => e.ClienteId).HasMaxLength(100).HasColumnName("Cliente");
 
                 entity.Property(e => e.Comentario)
                     .HasMaxLength(200)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("Comentario");
 
-                entity.Property(e => e.EncuestaId).HasColumnName("EncuestaID");
+                entity.Property(e => e.Detalles).HasMaxLength(500).HasColumnName("Detalles");
 
-                entity.HasOne(d => d.Cliente)
+                /*entity.HasOne(d => d.Cliente)
                     .WithMany(p => p.Sugerencia)
                     .HasForeignKey(d => d.ClienteId)
                     .HasConstraintName("FK__Sugerenci__Clien__5CD6CB2B");
@@ -202,7 +202,7 @@ namespace ProyectoGrupalG06.Models
                 entity.HasOne(d => d.Encuesta)
                     .WithMany(p => p.Sugerencia)
                     .HasForeignKey(d => d.EncuestaId)
-                    .HasConstraintName("FK__Sugerenci__Encue__5DCAEF64");
+                    .HasConstraintName("FK__Sugerenci__Encue__5DCAEF64");*/
             });
 
             modelBuilder.Entity<Usuario>(entity =>
@@ -230,10 +230,10 @@ namespace ProyectoGrupalG06.Models
 
                 entity.Property(e => e.RolId).HasColumnName("RolID");
 
-                entity.HasOne(d => d.Rol)
+                /*entity.HasOne(d => d.Rol)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.RolId)
-                    .HasConstraintName("FK__Usuarios__RolID__4BAC3F29");
+                    .HasConstraintName("FK__Usuarios__RolID__4BAC3F29");*/
             });
 
             OnModelCreatingPartial(modelBuilder);

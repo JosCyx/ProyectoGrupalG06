@@ -13,7 +13,7 @@ namespace ProyectoGrupalG06.Models
         public string? EstadoCaso { get; set; }
         public DateTime? FechaCreacion { get; set; }
 
-        public virtual Agente? Agente { get; set; }
-        public virtual Solicitude? Solicitud { get; set; }
+        //public virtual Agente? Agente { get; set; }
+        //public virtual Solicitude? Solicitud { get; set; }
     }
 }
